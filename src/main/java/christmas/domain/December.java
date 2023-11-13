@@ -12,7 +12,8 @@ public class December extends Date {
     
     private final List<Integer> sunday;
     
-    public December() {
+    public December(int day) {
+        super(day);
         weekend = new ArrayList<>(dateSetting(WEEKEND));
         sunday = new ArrayList<>(dateSetting(SUNDAY));
     }
@@ -24,11 +25,11 @@ public class December extends Date {
                 .toList();
     }
     
-    public boolean isSunday(int day) {
+    public boolean isSunday() {
         return sunday.contains(day);
     }
     
-    public boolean isChristmas(int day) {
+    public boolean isChristmas() {
         return day == CHRISTMAS;
     }
 }
