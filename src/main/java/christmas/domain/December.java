@@ -7,6 +7,7 @@ import java.util.List;
 public class December extends Date {
     
     private static final int CHRISTMAS = 25;
+    private static final String DELIMITER = ",";
     private static final String WEEKEND = "1,2,8,9,15,16,22,23,29,30";
     private static final String SUNDAY = "3,10,17,24,31";
     
@@ -19,7 +20,7 @@ public class December extends Date {
     }
     
     private List<Integer> dateSetting(String days) {
-        return Arrays.stream(days.split(","))
+        return Arrays.stream(days.split(DELIMITER))
                 .mapToInt(Integer::parseInt)
                 .boxed()
                 .toList();

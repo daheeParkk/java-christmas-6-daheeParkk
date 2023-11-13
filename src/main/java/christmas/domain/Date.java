@@ -11,4 +11,12 @@ public abstract class Date {
     protected Date(int day) {
         this.day = day;
     }
+    
+    public boolean isWeekend() {
+        return weekend.contains(day);
+    }
+    
+    public boolean isWeekday() {
+        return !weekend.contains(day);
+    }
 }
