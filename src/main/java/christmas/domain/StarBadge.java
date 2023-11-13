@@ -2,9 +2,9 @@ package christmas.domain;
 
 import christmas.util.BadgeType;
 
-public class STAR extends Badge {
+public class StarBadge extends Badge {
     
-    public STAR() {
+    public StarBadge() {
         super(BadgeType.STAR.getName());
     }
 }

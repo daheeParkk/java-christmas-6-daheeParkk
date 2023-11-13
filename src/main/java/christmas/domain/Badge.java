@@ -12,13 +12,13 @@ public class Badge {
     
     public static Badge create(int purchaseAmount) {
         if (purchaseAmount >= SANTA.getCondition()) {
-            return new SANTA();
+            return new SantaBadge();
         }
         if (purchaseAmount >= TREE.getCondition()) {
-            return new TREE();
+            return new TreeBadge();
         }
         if (purchaseAmount >= STAR.getCondition()) {
-            return new STAR();
+            return new StarBadge();
         }
         return null;
     }
