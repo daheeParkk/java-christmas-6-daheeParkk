@@ -4,10 +4,13 @@ import static christmas.util.BadgeType.*;
 
 public class Badge {
     
-    private Badge() {
+    private final String name;
+    
+    protected Badge(String name) {
+        this.name = name;
     }
     
-    public Badge createBadge(int purchaseAmount) {
+    public static Badge create(int purchaseAmount) {
         if (purchaseAmount >= SANTA.getCondition()) {
             return new SANTA();
         }
@@ -18,5 +21,9 @@ public class Badge {
             return new STAR();
         }
         return null;
+    }
+    
+    public String getName() {
+        return name;
     }
 }
