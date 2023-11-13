@@ -16,4 +16,13 @@ public class DecemberTest {
         
         Assertions.assertTrue(date.isSunday());
     }
+    
+    @DisplayName("날짜가 일요일이 아니면 false를 반환한다.")
+    @ParameterizedTest
+    @ValueSource(ints = {1, 9, 18, 25, 30})
+    public void isNotSundayTest(int day) {
+        December date = new December(day);
+        
+        Assertions.assertFalse(date.isSunday());
+    }
 }
