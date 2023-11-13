@@ -37,4 +37,40 @@ public class DecemberTest {
     
         assertThat(date.isChristmas()).isEqualTo(result);
     }
+    
+    @DisplayName("날짜가 평일이면 true를 반환한다.")
+    @ParameterizedTest
+    @ValueSource(ints = {3, 12, 20, 28})
+    public void isWeekdayTest(int day) {
+        December date = new December(day);
+        
+        Assertions.assertTrue(date.isWeekday());
+    }
+    
+    @DisplayName("날짜가 평일이 아니면 false를 반환한다.")
+    @ParameterizedTest
+    @ValueSource(ints = {8, 16, 22, 30})
+    public void isNotWeekdayTest(int day) {
+        December date = new December(day);
+        
+        Assertions.assertFalse(date.isWeekday());
+    }
+    
+    @DisplayName("날짜가 주말이면 true를 반환한다.")
+    @ParameterizedTest
+    @ValueSource(ints = {8, 16, 22, 30})
+    public void isWeekendTest(int day) {
+        December date = new December(day);
+        
+        Assertions.assertTrue(date.isWeekend());
+    }
+    
+    @DisplayName("날짜가 주말이 아니면 false를 반환한다.")
+    @ParameterizedTest
+    @ValueSource(ints = {3, 12, 20, 28})
+    public void isNotWeekendTest(int day) {
+        December date = new December(day);
+        
+        Assertions.assertFalse(date.isWeekend());
+    }
 }
