@@ -1,5 +1,6 @@
-package christmas.domain;
+package christmas.domain.date;
 
+import christmas.domain.date.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

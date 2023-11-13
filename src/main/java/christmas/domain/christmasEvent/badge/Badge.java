@@ -1,4 +1,4 @@
-package christmas.domain;
+package christmas.domain.christmasEvent.badge;
 
 import static christmas.util.BadgeType.*;
 
