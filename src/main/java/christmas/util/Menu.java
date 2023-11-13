@@ -9,7 +9,7 @@ public enum Menu {
     
     CHOCOLATE_CAKE("디저트", "초코케이크", 15000), ICE_CREAM("디저트", "아이스크림", 5000),
     
-    ZERO_COLA("음료", "제로콜라", 3000), RED_WINE("음료","레드와인", 60000),
+    ZERO_COLA("음료", "제로콜라", 3000), RED_WINE("음료", "레드와인", 60000),
     CHAMPAGNE("음료", "샴페인", 25000);
     
     private final String type;
