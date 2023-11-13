@@ -53,7 +53,6 @@ Bullet Point : 필드
 - [ ] 손님
   - 12월 class (예약 날짜)
   - 주문 class
-  - 혜택 class
   - [ ] 주문 기능
 - [ ] 주문(Order)
   - 주문 메뉴 리스트
