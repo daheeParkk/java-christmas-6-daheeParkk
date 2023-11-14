@@ -28,11 +28,14 @@ public class Order {
     }
     
     public int countMenuType(String menuType) {
-        List<Menu> dessertMenus = Menu.getTypeOf(menuType);
         int count = 0;
-        for (Menu dessertMenu : dessertMenus) {
-            count += menu.getOrDefault(dessertMenu, 0);
+        
+        for (Menu oneMenu : menu.keySet()) {
+            if (oneMenu.getType().equals(menuType)) {
+                count += menu.get(oneMenu);
+            }
         }
+        
         return count;
     }
 }

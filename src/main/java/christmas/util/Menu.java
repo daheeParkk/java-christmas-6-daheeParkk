@@ -25,16 +25,6 @@ public enum Menu {
         this.price = price;
     }
     
-    public static List<Menu> getTypeOf(String menuType) {
-        List<Menu> menus = new ArrayList<>();
-        for (Menu menu : Menu.values()) {
-            if (menu.type.equals(menuType)) {
-                menus.add(menu);
-            }
-        }
-        return menus;
-    }
-    
     public static Menu getMenuOf(String menuName) {
         Menu oneMenu = null;
         for (Menu menu : Menu.values()) {
