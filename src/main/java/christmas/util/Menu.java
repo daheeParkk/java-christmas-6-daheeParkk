@@ -1,5 +1,8 @@
 package christmas.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum Menu {
     BUTTON_MUSHROOM_SOUP("애피타이저", "양송이수프", 6000), TAPAS("애피타이저", "타파스", 5500),
     CAESAR_SALAD("애피타이저", "시저샐러드", 8000),
@@ -20,6 +23,16 @@ public enum Menu {
         this.type = type;
         this.name = name;
         this.price = price;
+    }
+    
+    public static List<Menu> getTypeOf(String menuType) {
+        List<Menu> menus = new ArrayList<>();
+        for (Menu menu : Menu.values()) {
+            if (menu.type.equals(menuType)) {
+                menus.add(menu);
+            }
+        }
+        return menus;
     }
     
     public String getType() {
