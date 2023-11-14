@@ -18,6 +18,7 @@ public class ChristmasDDayDiscount extends Discount {
         return name;
     }
     
+    @Override
     public int calculateDiscountAmount() {
         int increasingAmount = CHRISTMAS_D_DAY_DISCOUNT.getAmount();
         return BASIC_DISCOUNT_AMOUNT + (day - 1) * increasingAmount;
