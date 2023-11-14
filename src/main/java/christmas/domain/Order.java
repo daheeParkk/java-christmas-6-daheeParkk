@@ -45,4 +45,13 @@ public class Order {
         }
         return purchaseAmount;
     }
+    
+    public boolean hasMenuType(String menuType) {
+        for (Menu oneMenu : menu.keySet()) {
+            if (oneMenu.getType().equals(menuType)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
