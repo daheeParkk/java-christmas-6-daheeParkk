@@ -2,14 +2,13 @@ package christmas.domain;
 
 import christmas.util.Menu;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Order {
-
+    
     private final static String ORDER_DELIMITER = ",";
     private final static String ORDER_NUMBER_DELIMITER = "-";
-    private final Map<Menu,Integer> menu = new HashMap<>();
+    private final Map<Menu, Integer> menu = new HashMap<>();
     
     public Order(String order) {
         separateMenu(order);
@@ -35,7 +34,15 @@ public class Order {
                 count += menu.get(oneMenu);
             }
         }
-        
         return count;
+    }
+    
+    public int calculatePurchaseAmount() {
+        int purchaseAmount = 0;
+        
+        for (Menu oneMenu : menu.keySet()) {
+            purchaseAmount += oneMenu.getPrice() * menu.get(oneMenu);
+        }
+        return purchaseAmount;
     }
 }
