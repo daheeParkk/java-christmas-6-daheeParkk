@@ -23,7 +23,7 @@ public class DiscountTest {
         Assertions.assertThat(christmasDDayDiscount).isInstanceOf(ChristmasDDayDiscount.class);
     }
     
-    @DisplayName("1~25일 사이가 아니면 null이 반환된다.")
+    @DisplayName("1~25일 사이가 아니면 할인 이름이 '없음'이 된다.")
     @ParameterizedTest
     @ValueSource(ints = {26, 28, 29, 31})
     public void checkNotChristmasDDayDiscountTest(int day) {
@@ -32,7 +32,7 @@ public class DiscountTest {
         
         Discount christmasDDayDiscount = discount.checkChristmasDDayDiscount(date);
         
-        Assertions.assertThat(christmasDDayDiscount).isEqualTo(null);
+        Assertions.assertThat(christmasDDayDiscount.getName()).isEqualTo("없음");
     }
     
     @DisplayName("1~25일 사이일 때 날짜에 맞는 크리스마스 디데이 할인 가격이 반환된다.")
