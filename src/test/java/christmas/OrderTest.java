@@ -18,4 +18,15 @@ public class OrderTest {
         
         Assertions.assertThat(menuCount).isEqualTo(result);
     }
+    
+    @DisplayName("주문한 메뉴로 구매 금액을 계산한다.")
+    @ParameterizedTest
+    @CsvSource(value = {"타파스-1,제로콜라-1=8500", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1=142000"}, delimiter = '=')
+    public void calculatePurchaseAmountTest(String menu, int result) {
+        Order order = new Order(menu);
+        
+        int purchaseAmount = order.calculatePurchaseAmount();
+        
+        Assertions.assertThat(purchaseAmount).isEqualTo(result);
+    }
 }
