@@ -22,8 +22,8 @@ public class Order {
             String[] menuAndNumber = oneOrder.split(ORDER_NUMBER_DELIMITER);
             String menuName = menuAndNumber[0];
             int menuNumber = Integer.parseInt(menuAndNumber[1]);
-            
-            menu.put(Menu.valueOf(menuName), menuNumber);
+            Menu menu1 = Menu.getMenuOf(menuName);
+            menu.put(menu1, menuNumber);
         }
     }
     
@@ -31,7 +31,7 @@ public class Order {
         List<Menu> dessertMenus = Menu.getTypeOf(menuType);
         int count = 0;
         for (Menu dessertMenu : dessertMenus) {
-            count += menu.get(dessertMenu);
+            count += menu.getOrDefault(dessertMenu, 0);
         }
         return count;
     }

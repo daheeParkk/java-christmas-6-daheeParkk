@@ -35,6 +35,17 @@ public enum Menu {
         return menus;
     }
     
+    public static Menu getMenuOf(String menuName) {
+        Menu oneMenu = null;
+        for (Menu menu : Menu.values()) {
+            if (menu.name.equals(menuName)) {
+                oneMenu = menu;
+                break;
+            }
+        }
+        return oneMenu;
+    }
+    
     public String getType() {
         return type;
     }
