@@ -1,10 +1,10 @@
 package christmas.domain.christmasEvent.discount;
 
-import static christmas.util.DiscountType.CHRISTMAS_D_DAY_DISCOUNT;
-
 import christmas.domain.date.December;
 
 public class Discount {
+    
+    private final String name = "없음";
     
     public Discount checkChristmasDDayDiscount(December date) {
         int day = date.getDay();
@@ -12,7 +12,7 @@ public class Discount {
         if (day >= ChristmasDDayDiscount.START_DATE && day <= ChristmasDDayDiscount.END_DATE) {
             return new ChristmasDDayDiscount(day);
         }
-        return null;
+        return new Discount();
     }
     
     public int calculateDiscountAmount() {
