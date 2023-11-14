@@ -19,4 +19,8 @@ public abstract class Date {
     public boolean isWeekday() {
         return !weekend.contains(day);
     }
+    
+    public int getDay() {
+        return day;
+    }
 }
