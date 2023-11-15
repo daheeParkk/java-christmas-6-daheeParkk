@@ -1,5 +1,6 @@
 package christmas.christmasEventTest.discountTest;
 
+import christmas.domain.Order;
 import christmas.domain.christmasEvent.discount.ChristmasDDayDiscount;
 import christmas.domain.christmasEvent.discount.Discount;
 import christmas.domain.date.December;
@@ -11,14 +12,17 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class ChristmasDDayDiscountTest {
     
+    private static final String ORDER_MORE_THAN_MINIMUM_AMOUNT = "티본스테이크-1";
+    
     @DisplayName("1~25일 사이이면 크리스마스 디데이 할인 클래스가 반환된다.")
     @ParameterizedTest
     @ValueSource(ints = {1, 10, 22, 25})
     public void checkChristmasDDayDiscountTest(int day) {
         Discount discount = new Discount();
         December date = new December(day);
+        Order order = new Order(ORDER_MORE_THAN_MINIMUM_AMOUNT);
         
-        Discount christmasDDayDiscount = discount.checkChristmasDDayDiscount(date);
+        Discount christmasDDayDiscount = discount.checkChristmasDDayDiscount(date, order);
     
         Assertions.assertThat(christmasDDayDiscount).isInstanceOf(ChristmasDDayDiscount.class);
     }
@@ -29,8 +33,9 @@ public class ChristmasDDayDiscountTest {
     public void checkNotChristmasDDayDiscountTest(int day) {
         Discount discount = new Discount();
         December date = new December(day);
+        Order order = new Order(ORDER_MORE_THAN_MINIMUM_AMOUNT);
         
-        Discount christmasDDayDiscount = discount.checkChristmasDDayDiscount(date);
+        Discount christmasDDayDiscount = discount.checkChristmasDDayDiscount(date, order);
         
         Assertions.assertThat(christmasDDayDiscount.getName()).isEqualTo("없음");
     }
@@ -41,8 +46,9 @@ public class ChristmasDDayDiscountTest {
     public void calculateDiscountAmountTest(int day, int discountAmount) {
         Discount discount = new Discount();
         December date = new December(day);
+        Order order = new Order(ORDER_MORE_THAN_MINIMUM_AMOUNT);
         
-        Discount christmasDDayDiscount = discount.checkChristmasDDayDiscount(date);
+        Discount christmasDDayDiscount = discount.checkChristmasDDayDiscount(date, order);
         
         Assertions.assertThat(christmasDDayDiscount.calculateDiscountAmount()).isEqualTo(discountAmount);
     }

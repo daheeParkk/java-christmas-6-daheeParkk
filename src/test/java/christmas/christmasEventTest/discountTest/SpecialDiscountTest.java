@@ -1,5 +1,6 @@
 package christmas.christmasEventTest.discountTest;
 
+import christmas.domain.Order;
 import christmas.domain.christmasEvent.discount.Discount;
 import christmas.domain.date.December;
 import org.assertj.core.api.Assertions;
@@ -10,14 +11,17 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class SpecialDiscountTest {
     
+    private static final String ORDER_MORE_THAN_MINIMUM_AMOUNT = "티본스테이크-1";
+    
     @DisplayName("이벤트 달력에 별이 있는 날이면 할인 이름이 '특별 할인'이 된다.")
     @ParameterizedTest
     @ValueSource(ints = {3, 10, 17, 24, 25, 31})
     public void checkSpecialDiscountTest(int day) {
         December date = new December(day);
         Discount discount = new Discount();
+        Order order = new Order(ORDER_MORE_THAN_MINIMUM_AMOUNT);
         
-        Discount specialDiscount = discount.checkSpecialDiscount(date);
+        Discount specialDiscount = discount.checkSpecialDiscount(date, order);
     
         Assertions.assertThat(specialDiscount.getName()).isEqualTo("특별 할인");
     }
@@ -28,8 +32,9 @@ public class SpecialDiscountTest {
     public void checkNotSpecialDiscountTest(int day) {
         December date = new December(day);
         Discount discount = new Discount();
+        Order order = new Order(ORDER_MORE_THAN_MINIMUM_AMOUNT);
         
-        Discount specialDiscount = discount.checkSpecialDiscount(date);
+        Discount specialDiscount = discount.checkSpecialDiscount(date, order);
         
         Assertions.assertThat(specialDiscount.getName()).isEqualTo("없음");
     }
@@ -39,7 +44,8 @@ public class SpecialDiscountTest {
     public void calculateDiscountAmountTest() {
         December date = new December(25);
         Discount discount = new Discount();
-        Discount specialDiscount = discount.checkSpecialDiscount(date);
+        Order order = new Order(ORDER_MORE_THAN_MINIMUM_AMOUNT);
+        Discount specialDiscount = discount.checkSpecialDiscount(date, order);
         
         int discountAmount = specialDiscount.calculateDiscountAmount();
         

@@ -8,10 +8,12 @@ import christmas.util.DiscountType;
 
 public class Discount {
     
+    private static final int BASIC_CONDITION_DISCOUNT = 10000;
+    
     private final String name = "없음";
     
-    public Discount checkChristmasDDayDiscount(December date) {
-        if (isConditionChristmasDDayDiscount(date)) {
+    public Discount checkChristmasDDayDiscount(December date, Order order) {
+        if (isBasicConditionDiscount(order) && isConditionChristmasDDayDiscount(date)) {
             return new ChristmasDDayDiscount(date.getDay());
         }
         return new Discount();
@@ -25,7 +27,7 @@ public class Discount {
     }
     
     public Discount checkWeekdayDiscount(December date, Order order) {
-        if(isConditionWeekdayDiscount(date,order)) {
+        if(isBasicConditionDiscount(order) && isConditionWeekdayDiscount(date,order)) {
             return new WeekdayDiscount(order);
         }
         return new Discount();
@@ -39,7 +41,7 @@ public class Discount {
     }
     
     public Discount checkWeekendDiscount(December date, Order order) {
-        if(isConditionWeekendDiscount(date,order)) {
+        if(isBasicConditionDiscount(order) && isConditionWeekendDiscount(date,order)) {
             return new WeekendDiscount(order);
         }
         return new Discount();
@@ -52,8 +54,8 @@ public class Discount {
         return false;
     }
     
-    public Discount checkSpecialDiscount(December date) {
-        if (isSpecialDay(date.getDay())) {
+    public Discount checkSpecialDiscount(December date, Order order) {
+        if (isBasicConditionDiscount(order) && isSpecialDay(date.getDay())) {
             return new SpecialDiscount();
         }
         return new Discount();
@@ -78,5 +80,9 @@ public class Discount {
     
     private boolean isDiscountDate(int day, DiscountType discount) {
         return day >= discount.getStartDate() && day <= discount.getEndDate();
+    }
+    
+    private boolean isBasicConditionDiscount(Order order) {
+        return order.calculatePurchaseAmount() >= BASIC_CONDITION_DISCOUNT;
     }
 }
