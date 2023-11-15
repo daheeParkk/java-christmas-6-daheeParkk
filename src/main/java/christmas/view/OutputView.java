@@ -1,5 +1,78 @@
 package christmas.view;
 
-public class OutputView {
+import static christmas.message.OutputMessage.*;
 
+import java.util.Map;
+
+public class OutputView {
+    
+    public void outputGreetings() {
+        System.out.println(GREETINGS.getMessage());
+    }
+    
+    public void outputBenefitPreview() {
+        System.out.println(BENEFITS_PREVIEW.getMessage());
+    }
+    
+    public void outputOrderMenuHeader() {
+        System.out.println(ORDER_MENU_HEADER.getMessage());
+    }
+    
+    public void outputOrderMenu(Map<String, Integer> orderMenu) {
+        for (String orderOneMenu : orderMenu.keySet()) {
+            System.out.println(ORDER_MENU.getMessageWithCount(orderOneMenu, orderMenu.get(orderOneMenu)));
+        }
+    }
+    
+    public void outputTotalOrderAmountHeader() {
+        System.out.println(TOTAL_ORDER_AMOUNT_HEADER.getMessage());
+    }
+    
+    public void outputTotalOrderAmount(int orderAmount) {
+        System.out.println(TOTAL_ORDER_AMOUNT.getMessage(orderAmount));
+    }
+    
+    public void outputGiveawayMenuHeader() {
+        System.out.println(GIVEAWAY_MENU_HEADER.getMessage());
+    }
+    
+    public void outputGiveawayMenu(Map<String, Integer> giveawayMenu) {
+        for (String giveawayOneMenu : giveawayMenu.keySet()) {
+            System.out.println(GIVEAWAY_MENU.getMessageWithCount(giveawayOneMenu, giveawayMenu.get(giveawayOneMenu)));
+        }
+    }
+    
+    public void outputBenefitsHeader() {
+        System.out.println(BENEFITS_HEADER.getMessage());
+    }
+    
+    public void outputBenefits(Map<String, Integer> benefits) {
+        for (String benefit : benefits.keySet()) {
+            System.out.println(BENEFITS.getMessageWithAmount(benefit, benefits.get(benefit)));
+        }
+    }
+    
+    public void outputTotalBenefitAmountHeader() {
+        System.out.println(TOTAL_BENEFIT_AMOUNT_HEADER.getMessage());
+    }
+    
+    public void outputTotalBenefitAmount(int totalBenefitAmount) {
+        System.out.println(TOTAL_BENEFIT_AMOUNT.getMessage(totalBenefitAmount));
+    }
+    
+    public void outputAmountOfPaymentHeader() {
+        System.out.println(AMOUNT_OF_PAYMENT_HEADER.getMessage());
+    }
+    
+    public void outputAmountOfPayment(int amountOfPayment) {
+        System.out.println(AMOUNT_OF_PAYMENT.getMessage(amountOfPayment));
+    }
+    
+    public void outputBadgeHeader() {
+        System.out.println(BADGE_HEADER.getMessage());
+    }
+    
+    public void outputBadge(String name) {
+        System.out.println(name);
+    }
 }

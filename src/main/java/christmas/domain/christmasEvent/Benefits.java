@@ -22,7 +22,7 @@ public class Benefits {
     
     public Map<String, Integer> getAvailableDiscounts() {
         Map<String, Integer> availableDiscount = discounts.getAvailableDiscounts();
-        availableDiscount.put(giveaway.getName(), giveaway.getNumberOfGiveaway());
+        availableDiscount.put(giveaway.getName(), giveaway.getDiscountAmount());
         return availableDiscount;
     }
     
