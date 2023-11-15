@@ -20,6 +20,7 @@ public class Order {
     private void separateMenu(String order) {
         String[] orders = order.split(ORDER_DELIMITER);
         orderValidator.checkDuplicate(orders);
+        orderValidator.checkSize();
         
         for (String oneOrder : orders) {
             String[] menuAndNumber = oneOrder.split(ORDER_NUMBER_DELIMITER);
@@ -27,6 +28,7 @@ public class Order {
             int menuNumber = Integer.parseInt(menuAndNumber[1]);
             menu.put(Menu.getMenuOf(menuName), menuNumber);
         }
+        orderValidator.checkMenuType(menu);
     }
     
     public int countMenuType(String menuType) {
