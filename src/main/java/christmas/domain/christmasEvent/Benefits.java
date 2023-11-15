@@ -21,11 +21,13 @@ public class Benefits {
     }
     
     public Map<String, Integer> getAvailableDiscounts() {
-        return discounts.getAvailableDiscounts();
+        Map<String, Integer> availableDiscount = discounts.getAvailableDiscounts();
+        availableDiscount.put(giveaway.getName(), giveaway.getNumberOfGiveaway());
+        return availableDiscount;
     }
     
     public int calculateDiscountAmount() {
-        return discounts.calculateDiscountAmount();
+        return discounts.calculateDiscountAmount() + giveaway.getDiscountAmount();
     }
     
     public Map<String, Integer> getGiveaway() {

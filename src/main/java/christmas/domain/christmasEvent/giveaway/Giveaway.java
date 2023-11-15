@@ -10,6 +10,7 @@ public class Giveaway {
     
     private final String name = "없음";
     private final int count = 0;
+    private final int discountAmount = 0;
     
     public Giveaway checkChampagneGiveaway(December date, Order order) {
         if (isGiveawayDate(date.getDay(), CHAMPAGNE) && isConditionChampagneGiveaway(order)) {
@@ -32,5 +33,9 @@ public class Giveaway {
     
     public int getNumberOfGiveaway() {
         return count;
+    }
+    
+    public int getDiscountAmount() {
+        return discountAmount;
     }
 }

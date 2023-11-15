@@ -33,7 +33,7 @@ public class Customer {
     }
     
     public int getBenefitAmount() {
-        return benefits.calculateDiscountAmount();
+        return -(benefits.calculateDiscountAmount());
     }
     
     public int getAmountOfPayment() {
