@@ -13,6 +13,7 @@ public class ChampagneGiveaway extends Giveaway {
         return name;
     }
     
+    @Override
     public int getNumberOfGiveaway() {
         return NUMBER_OF_GIVEAWAY;
     }

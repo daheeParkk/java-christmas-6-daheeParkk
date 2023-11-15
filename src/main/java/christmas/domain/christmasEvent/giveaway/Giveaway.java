@@ -4,12 +4,12 @@ import static christmas.util.GiveawayEvent.*;
 
 import christmas.domain.Order;
 import christmas.domain.date.December;
-import christmas.util.DiscountType;
 import christmas.util.GiveawayEvent;
 
 public class Giveaway {
     
     private final String name = "없음";
+    private final int count = 0;
     
     public Giveaway checkChampagneGiveaway(December date, Order order) {
         if (isGiveawayDate(date.getDay(), CHAMPAGNE) && isConditionChampagneGiveaway(order)) {
@@ -28,5 +28,9 @@ public class Giveaway {
     
     public String getName() {
         return name;
+    }
+    
+    public int getNumberOfGiveaway() {
+        return count;
     }
 }
