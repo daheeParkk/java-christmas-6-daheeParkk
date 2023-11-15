@@ -40,12 +40,24 @@ public class WeekdayDiscountTest {
     @DisplayName("날짜가 평일일 때 디저트가 없으면 할인 이름이 '없음'이 된다.")
     @ParameterizedTest
     @ValueSource(ints = {3, 11, 19, 25, 28, 31})
-    public void isOrderConditionWeekdayDiscountTest(int day) {
+    public void isNotOrderConditionWeekdayDiscountTest(int day) {
         December date = new December(day);
         Discount discount = new Discount();
         
         Discount weekdayDiscount = discount.checkWeekdayDiscount(date, new Order(MAIN_MENU_ORDER));
         
         Assertions.assertThat(weekdayDiscount.getName()).isEqualTo("없음");
+    }
+    
+    @DisplayName("날짜가 평일일 때 디저트가 있으면 할인 이름이 '평일 할인'이 된다.")
+    @ParameterizedTest
+    @ValueSource(ints = {3, 11, 19, 25, 28, 31})
+    public void isOrderConditionWeekdayDiscountTest(int day) {
+        December date = new December(day);
+        Discount discount = new Discount();
+        
+        Discount weekdayDiscount = discount.checkWeekdayDiscount(date, new Order(DESSERT_ORDER));
+        
+        Assertions.assertThat(weekdayDiscount.getName()).isEqualTo("평일 할인");
     }
 }
