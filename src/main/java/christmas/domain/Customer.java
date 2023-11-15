@@ -33,11 +33,11 @@ public class Customer {
     }
     
     public int getBenefitAmount() {
-        return -(benefits.calculateDiscountAmount());
+        return -(benefits.calculateTotalDiscountAmount());
     }
     
     public int getAmountOfPayment() {
-        return getTotalOrderAmount() - getBenefitAmount();
+        return getTotalOrderAmount() - benefits.calculateDiscountAmount();
     }
     
     public String getBadge() {

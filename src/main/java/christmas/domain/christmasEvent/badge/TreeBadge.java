@@ -9,4 +9,5 @@ public class TreeBadge extends Badge {
     @Override
     public String getName() {
         return name;
-    }}
+    }
+}

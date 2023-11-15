@@ -17,7 +17,8 @@ public enum OutputMessage {
     TOTAL_BENEFIT_AMOUNT("%s원"),
     AMOUNT_OF_PAYMENT_HEADER("<할인 후 예상 결제 금액>"),
     AMOUNT_OF_PAYMENT("%s원"),
-    BADGE_HEADER("<12월 이벤트 배지>");
+    BADGE_HEADER("<12월 이벤트 배지>"),
+    NOT_EXIST("없음");
     
     private final String message;
     

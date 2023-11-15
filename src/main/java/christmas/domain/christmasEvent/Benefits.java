@@ -26,8 +26,12 @@ public class Benefits {
         return availableDiscount;
     }
     
-    public int calculateDiscountAmount() {
+    public int calculateTotalDiscountAmount() {
         return discounts.calculateDiscountAmount() + giveaway.getDiscountAmount();
+    }
+    
+    public int calculateDiscountAmount() {
+        return discounts.calculateDiscountAmount();
     }
     
     public Map<String, Integer> getGiveaway() {
@@ -37,7 +41,7 @@ public class Benefits {
     }
     
     public String getBadge() {
-        badge = Badge.create(calculateDiscountAmount());
+        badge = Badge.create(calculateTotalDiscountAmount());
         return badge.getName();
     }
 }

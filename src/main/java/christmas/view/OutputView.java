@@ -40,9 +40,20 @@ public class OutputView {
     }
     
     public void outputGiveawayMenu(Map<String, Integer> giveawayMenu) {
+        if (checkExist(giveawayMenu)) {
+            return;
+        }
         for (String giveawayOneMenu : giveawayMenu.keySet()) {
             System.out.println(GIVEAWAY_MENU.getMessageWithCount(giveawayOneMenu, giveawayMenu.get(giveawayOneMenu)));
         }
+    }
+    
+    private boolean checkExist(Map<String, Integer> details) {
+        if(details.containsKey(NOT_EXIST.getMessage())) {
+            System.out.println(NOT_EXIST.getMessage());
+            return true;
+        }
+        return false;
     }
     
     public void outputBenefitsHeader() {
@@ -51,6 +62,9 @@ public class OutputView {
     }
     
     public void outputBenefits(Map<String, Integer> benefits) {
+        if (checkExist(benefits)) {
+            return;
+        }
         for (String benefit : benefits.keySet()) {
             System.out.println(BENEFITS.getMessageWithAmount(benefit, benefits.get(benefit)));
         }
