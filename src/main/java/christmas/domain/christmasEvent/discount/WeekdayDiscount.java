@@ -7,7 +7,7 @@ import christmas.domain.Order;
 public class WeekdayDiscount extends Discount {
 
     protected static final String DISCOUNT_MENU_TYPE = "디저트";
-    private static final int DISCOUNT_AMOUNT = 2023;
+    private static final int DISCOUNT_AMOUNT = WEEKDAY_DISCOUNT.getAmount();
     
     private final String name = WEEKDAY_DISCOUNT.getName();
     private final Order order;
@@ -16,6 +16,7 @@ public class WeekdayDiscount extends Discount {
         this.order = order;
     }
     
+    @Override
     public String getName() {
         return name;
     }

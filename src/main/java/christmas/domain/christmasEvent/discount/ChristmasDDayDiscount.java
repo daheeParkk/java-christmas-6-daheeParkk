@@ -12,6 +12,7 @@ public class ChristmasDDayDiscount extends Discount {
         this.day = day;
     }
     
+    @Override
     public String getName() {
         return name;
     }

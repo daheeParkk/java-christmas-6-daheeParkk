@@ -52,6 +52,22 @@ public class Discount {
         return false;
     }
     
+    public Discount checkSpecialDiscount(December date) {
+        if (isSpecialDay(date.getDay())) {
+            return new SpecialDiscount();
+        }
+        return new Discount();
+    }
+    
+    private boolean isSpecialDay(int day) {
+        for (int specialDay : SpecialDiscount.SPECIAL_DAYS) {
+            if (specialDay == day) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public int calculateDiscountAmount() {
         return 0;
     }
