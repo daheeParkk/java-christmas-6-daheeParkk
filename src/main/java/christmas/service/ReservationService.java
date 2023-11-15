@@ -1,42 +1,41 @@
 package christmas.service;
 
+import christmas.domain.Customer;
 import java.util.Map;
 
 public class ReservationService {
     
-    public void reserveDate(int day) {
+    private Customer customer;
     
-    }
-    
-    public void orderMenu(String menu) {
-    
+    public void reserve(int day, String menu) {
+        customer = new Customer(day, menu);
     }
     
     public Map<String, Integer> checkOrderInformation() {
-        return null;
+        return customer.getOrderMenu();
     }
     
     public int checkTotalOrderAmount() {
-        return 0;
+        return customer.getTotalOrderAmount();
     }
     
     public Map<String, Integer> checkGiveawayMenu() {
-        return null;
+        return customer.getGiveaway();
     }
     
     public Map<String, Integer> checkDiscount() {
-        return null;
+        return customer.getAvailableDiscounts();
     }
     
     public int checkTotalDiscountAmount() {
-        return 0;
+        return customer.getBenefitAmount();
     }
     
     public int checkAmountOfPayment() {
-        return 0;
+        return customer.getAmountOfPayment();
     }
     
     public String checkBadge() {
-        return null;
+        return customer.getBadge();
     }
 }

@@ -63,9 +63,8 @@ public class WooTeCoRestaurantController {
         outputView.outputGreetings();
         
         int day = Integer.parseInt(inputView.inputDateOfVisit());
-        reservationService.reserveDate(day);
-        
         String menu = inputView.inputOrderMenu();
-        reservationService.orderMenu(menu);
+    
+        reservationService.reserve(day, menu);
     }
 }
