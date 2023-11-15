@@ -38,6 +38,20 @@ public class Discount {
         return false;
     }
     
+    public Discount checkWeekendDiscount(December date, Order order) {
+        if(isConditionWeekendDiscount(date,order)) {
+            return new WeekendDiscount(order);
+        }
+        return new Discount();
+    }
+    
+    private boolean isConditionWeekendDiscount(December date, Order order) {
+        if (isDiscountDate(date.getDay(), WEEKEND_DISCOUNT) && !date.isWeekday()) {
+            return order.hasMenuType(WeekendDiscount.DISCOUNT_MENU_TYPE);
+        }
+        return false;
+    }
+    
     public int calculateDiscountAmount() {
         return 0;
     }
