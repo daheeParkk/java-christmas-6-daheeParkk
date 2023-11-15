@@ -9,7 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-public class DiscountTest {
+public class ChristmasDDayDiscountTest {
     
     @DisplayName("1~25일 사이이면 크리스마스 디데이 할인 클래스가 반환된다.")
     @ParameterizedTest

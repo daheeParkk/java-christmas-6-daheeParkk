@@ -1,6 +1,5 @@
 package christmas.domain.christmasEvent.discount;
 
-import static christmas.util.DiscountType.CHRISTMAS_D_DAY_DISCOUNT;
 import static christmas.util.DiscountType.WEEKDAY_DISCOUNT;
 
 import christmas.domain.Order;
