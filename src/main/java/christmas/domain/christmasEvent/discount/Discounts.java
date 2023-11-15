@@ -8,7 +8,9 @@ import static christmas.util.DiscountType.WEEKEND_DISCOUNT;
 import christmas.domain.Order;
 import christmas.domain.date.December;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Discounts {
     
@@ -56,5 +58,14 @@ public class Discounts {
         if (christmasDDayDiscount.getName().equals(CHRISTMAS_D_DAY_DISCOUNT.getName())) {
             discounts.add(christmasDDayDiscount);
         }
+    }
+    
+    public Map<String, Integer> getAvailableDiscounts() {
+        Map<String, Integer> availableDiscounts = new HashMap<>();
+        
+        for (Discount discount : discounts) {
+            availableDiscounts.put(discount.getName(), discount.calculateDiscountAmount());
+        }
+        return availableDiscounts;
     }
 }
