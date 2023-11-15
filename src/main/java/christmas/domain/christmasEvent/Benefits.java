@@ -12,12 +12,12 @@ public class Benefits {
     
     private final Discounts discounts;
     private final Giveaway giveaway;
-    private final Badge badge;
+    
+    private  Badge badge;
     
     public Benefits(December date, Order order) {
         giveaway = new Giveaway().checkChampagneGiveaway(date, order);
         discounts = new Discounts(date, order);
-        badge = Badge.create(order.calculatePurchaseAmount());
     }
     
     public Map<String, Integer> getAvailableDiscounts() {
@@ -37,6 +37,7 @@ public class Benefits {
     }
     
     public String getBadge() {
+        badge = Badge.create(calculateDiscountAmount());
         return badge.getName();
     }
 }

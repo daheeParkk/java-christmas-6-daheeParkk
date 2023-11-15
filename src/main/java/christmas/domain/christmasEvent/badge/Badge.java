@@ -4,23 +4,19 @@ import static christmas.util.BadgeType.*;
 
 public class Badge {
     
-    private final String name;
+    private final String name = "없음";
     
-    protected Badge(String name) {
-        this.name = name;
-    }
-    
-    public static Badge create(int purchaseAmount) {
-        if (purchaseAmount >= SANTA.getCondition()) {
+    public static Badge create(int benefitAmount) {
+        if (benefitAmount >= SANTA.getCondition()) {
             return new SantaBadge();
         }
-        if (purchaseAmount >= TREE.getCondition()) {
+        if (benefitAmount >= TREE.getCondition()) {
             return new TreeBadge();
         }
-        if (purchaseAmount >= STAR.getCondition()) {
+        if (benefitAmount >= STAR.getCondition()) {
             return new StarBadge();
         }
-        return null;
+        return new Badge();
     }
     
     public String getName() {

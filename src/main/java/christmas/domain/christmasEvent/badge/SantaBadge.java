@@ -1,11 +1,13 @@
 package christmas.domain.christmasEvent.badge;
 
-import christmas.domain.christmasEvent.badge.Badge;
-import christmas.util.BadgeType;
+import static christmas.util.BadgeType.*;
 
 public class SantaBadge extends Badge {
     
-    public SantaBadge() {
-        super(BadgeType.SANTA.getName());
+    private final String name = SANTA.getName();
+    
+    @Override
+    public String getName() {
+        return name;
     }
 }

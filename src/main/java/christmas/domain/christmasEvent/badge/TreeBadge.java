@@ -1,11 +1,12 @@
 package christmas.domain.christmasEvent.badge;
 
-import christmas.domain.christmasEvent.badge.Badge;
-import christmas.util.BadgeType;
+import static christmas.util.BadgeType.TREE;
 
 public class TreeBadge extends Badge {
     
-    public TreeBadge() {
-        super(BadgeType.TREE.getName());
-    }
-}
+    private final String name = TREE.getName();
+    
+    @Override
+    public String getName() {
+        return name;
+    }}
