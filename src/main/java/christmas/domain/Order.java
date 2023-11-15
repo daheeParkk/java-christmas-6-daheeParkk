@@ -54,4 +54,12 @@ public class Order {
         }
         return false;
     }
+    
+    public Map<String, Integer> getOrderMenu() {
+        Map<String, Integer> orderMenu = new HashMap<>();
+        for (Menu oneMenu : menu.keySet()) {
+            orderMenu.put(oneMenu.getName(), menu.get(oneMenu));
+        }
+        return orderMenu;
+    }
 }
