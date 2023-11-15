@@ -6,9 +6,7 @@ import static christmas.util.DiscountType.WEEKDAY_DISCOUNT;
 import christmas.domain.Order;
 
 public class WeekdayDiscount extends Discount {
-    
-    protected static final int START_DATE = WEEKDAY_DISCOUNT.getStartDate();
-    protected static final int END_DATE = WEEKDAY_DISCOUNT.getEndDate();
+
     protected static final String DISCOUNT_MENU_TYPE = "디저트";
     private static final int DISCOUNT_AMOUNT = 2023;
     
