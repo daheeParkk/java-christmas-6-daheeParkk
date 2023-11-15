@@ -68,4 +68,12 @@ public class Discounts {
         }
         return availableDiscounts;
     }
+    
+    public int calculateDiscountAmount() {
+        int discountAmount = 0;
+        for (Discount discount : discounts) {
+            discountAmount += discount.calculateDiscountAmount();
+        }
+        return discountAmount;
+    }
 }
