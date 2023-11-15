@@ -10,11 +10,12 @@ public class OutputView {
         System.out.println(GREETINGS.getMessage());
     }
     
-    public void outputBenefitPreview() {
-        System.out.println(BENEFITS_PREVIEW.getMessage());
+    public void outputBenefitPreview(int day) {
+        System.out.println(BENEFITS_PREVIEW.getMessageByDay(day));
     }
     
     public void outputOrderMenuHeader() {
+        outputBlankLine();
         System.out.println(ORDER_MENU_HEADER.getMessage());
     }
     
@@ -25,6 +26,7 @@ public class OutputView {
     }
     
     public void outputTotalOrderAmountHeader() {
+        outputBlankLine();
         System.out.println(TOTAL_ORDER_AMOUNT_HEADER.getMessage());
     }
     
@@ -33,6 +35,7 @@ public class OutputView {
     }
     
     public void outputGiveawayMenuHeader() {
+        outputBlankLine();
         System.out.println(GIVEAWAY_MENU_HEADER.getMessage());
     }
     
@@ -43,6 +46,7 @@ public class OutputView {
     }
     
     public void outputBenefitsHeader() {
+        outputBlankLine();
         System.out.println(BENEFITS_HEADER.getMessage());
     }
     
@@ -53,6 +57,7 @@ public class OutputView {
     }
     
     public void outputTotalBenefitAmountHeader() {
+        outputBlankLine();
         System.out.println(TOTAL_BENEFIT_AMOUNT_HEADER.getMessage());
     }
     
@@ -61,6 +66,7 @@ public class OutputView {
     }
     
     public void outputAmountOfPaymentHeader() {
+        outputBlankLine();
         System.out.println(AMOUNT_OF_PAYMENT_HEADER.getMessage());
     }
     
@@ -69,10 +75,15 @@ public class OutputView {
     }
     
     public void outputBadgeHeader() {
+        outputBlankLine();
         System.out.println(BADGE_HEADER.getMessage());
     }
     
     public void outputBadge(String name) {
         System.out.println(name);
+    }
+    
+    private void outputBlankLine() {
+        System.out.println();
     }
 }

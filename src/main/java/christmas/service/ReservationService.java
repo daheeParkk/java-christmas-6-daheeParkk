@@ -38,4 +38,8 @@ public class ReservationService {
     public String checkBadge() {
         return customer.getBadge();
     }
+    
+    public int checkReserveDate() {
+        return customer.getReserveDate();
+    }
 }

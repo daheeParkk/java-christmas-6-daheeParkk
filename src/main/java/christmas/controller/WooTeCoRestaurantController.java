@@ -50,7 +50,7 @@ public class WooTeCoRestaurantController {
     }
     
     private void confirmOrder() {
-        outputView.outputBenefitPreview();
+        outputView.outputBenefitPreview(reservationService.checkReserveDate());
         
         outputView.outputOrderMenuHeader();
         outputView.outputOrderMenu(reservationService.checkOrderInformation());

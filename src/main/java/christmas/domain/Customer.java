@@ -43,4 +43,8 @@ public class Customer {
     public String getBadge() {
         return benefits.getBadge();
     }
+    
+    public int getReserveDate() {
+        return date.getDay();
+    }
 }
