@@ -1,6 +1,7 @@
 package christmas.domain;
 
 import christmas.util.Menu;
+import christmas.validator.OrderValidator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,6 +9,8 @@ public class Order {
     
     private final static String ORDER_DELIMITER = ",";
     private final static String ORDER_NUMBER_DELIMITER = "-";
+    
+    private final OrderValidator orderValidator = new OrderValidator();
     private final Map<Menu, Integer> menu = new HashMap<>();
     
     public Order(String order) {
@@ -16,13 +19,13 @@ public class Order {
     
     private void separateMenu(String order) {
         String[] orders = order.split(ORDER_DELIMITER);
+        orderValidator.checkDuplicate(orders);
         
         for (String oneOrder : orders) {
             String[] menuAndNumber = oneOrder.split(ORDER_NUMBER_DELIMITER);
             String menuName = menuAndNumber[0];
             int menuNumber = Integer.parseInt(menuAndNumber[1]);
-            Menu menu1 = Menu.getMenuOf(menuName);
-            menu.put(menu1, menuNumber);
+            menu.put(Menu.getMenuOf(menuName), menuNumber);
         }
     }
     

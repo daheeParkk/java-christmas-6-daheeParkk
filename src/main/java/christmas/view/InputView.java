@@ -3,6 +3,7 @@ package christmas.view;
 import static christmas.message.InputMessage.*;
 
 import camp.nextstep.edu.missionutils.Console;
+import christmas.validator.InputValidator;
 
 public class InputView {
     
