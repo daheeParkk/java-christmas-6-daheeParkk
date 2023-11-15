@@ -100,4 +100,8 @@ public class OutputView {
     private void outputBlankLine() {
         System.out.println();
     }
+    
+    public void outputErrorMessage(String message) {
+        System.out.println(message);
+    }
 }

@@ -61,10 +61,37 @@ public class WooTeCoRestaurantController {
     
     private void entertainCustomer() {
         outputView.outputGreetings();
-        
-        int day = Integer.parseInt(inputView.inputDateOfVisit());
-        String menu = inputView.inputOrderMenu();
     
-        reservationService.reserve(day, menu);
+        int day = reserveDate();
+        orderMenu(day);
+    }
+    
+    private void orderMenu(int day) {
+        boolean correct = false;
+    
+        while (!correct) {
+            try {
+                String menu = inputView.inputOrderMenu();
+                reservationService.reserve(day, menu);
+                correct = true;
+            } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException | NullPointerException e) {
+                outputView.outputErrorMessage("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            }
+        }
+    }
+    
+    private int reserveDate() {
+        int day = 0;
+        boolean correct = false;
+        
+        while (!correct) {
+            try {
+                day = Integer.parseInt(inputView.inputDateOfVisit());
+                correct = true;
+            } catch (IllegalArgumentException e) {
+                outputView.outputErrorMessage("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
+            }
+        }
+        return day;
     }
 }

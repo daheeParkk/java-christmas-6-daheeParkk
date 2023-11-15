@@ -6,7 +6,7 @@ public class InputValidator {
     private static final int LAST_DAY = 31;
     
     public void checkNumeric(String day) {
-        if (day.chars().allMatch(Character::isDigit)) {
+        if (!day.chars().allMatch(Character::isDigit)) {
             throw new IllegalArgumentException();
         }
     }
