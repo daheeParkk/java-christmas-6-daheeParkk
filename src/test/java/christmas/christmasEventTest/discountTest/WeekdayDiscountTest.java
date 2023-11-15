@@ -6,6 +6,7 @@ import christmas.domain.date.December;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class WeekdayDiscountTest {
@@ -59,5 +60,18 @@ public class WeekdayDiscountTest {
         Discount weekdayDiscount = discount.checkWeekdayDiscount(date, new Order(DESSERT_ORDER));
         
         Assertions.assertThat(weekdayDiscount.getName()).isEqualTo("평일 할인");
+    }
+    
+    @DisplayName("평일 할인이 될 때 디저트 메뉴를 메뉴 1개당 2,023원을 할인하도록 계산한다.")
+    @ParameterizedTest
+    @CsvSource(value = {"초코케이크-1,아이스크림-2=6069","아이스크림-2,티본스테이크-1=4046"}, delimiter = '=')
+    public void calculateDiscountAmountTest(String menu, int result) {
+        December date = new December(25);
+        Discount discount = new Discount();
+        
+        Discount weekdayDiscount = discount.checkWeekdayDiscount(date, new Order(menu));
+        int discountAmount = weekdayDiscount.calculateDiscountAmount();
+        
+        Assertions.assertThat(discountAmount).isEqualTo(result);
     }
 }
